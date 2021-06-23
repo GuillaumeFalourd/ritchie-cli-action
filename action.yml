@@ -56,7 +56,7 @@ runs:
 
     - name: Run formula command
       run: |
-        ⚙️ Ritchie Formula command to run: ${{ inputs.rit_formula_command }}
+        echo ⚙️ Ritchie Formula command to run: ${{ inputs.rit_formula_command }}
         ${{ inputs.rit_formula_command }}
       shell: bash
 
