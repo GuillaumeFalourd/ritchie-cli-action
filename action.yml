@@ -34,9 +34,7 @@ runs:
           ./bootstrap-vcpkg.sh
           ./vcpkg integrate install
           vcpkg install curl[tool]
-          curl https://eternallybored.org/misc/wget/1.21.1/64/wget.exe
-          ls
-          wget.exe https://commons-repo.ritchiecli.io/2.11.3/windows/rit.exe
+          curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
         fi
       shell: bash
 
