@@ -12,7 +12,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ### Requirements
 
-⚠️  The [`actions/checkout`](https://github.com/actions/checkout) is mandatory to use this action on **WINDOWS RUNNER**, as it will be necessary to install and execute Ritchie binary.
+⚠️  The [`actions/checkout`](https://github.com/actions/checkout) is mandatory to use this action on **`WINDOWS RUNNER`**, as it will be necessary to install and execute Ritchie binary.
 
 ⚠️ The [`actions to setup environment`](https://github.com/marketplace?type=actions&query=setup+env+) may be necessary to use this action depending on the `runner` or the `programming language` that will be used to run and build the formula. For example:
 
