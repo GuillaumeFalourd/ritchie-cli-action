@@ -36,7 +36,7 @@ _e.g: [setup-node](https://github.com/marketplace/actions/setup-node-js-environm
 
 ```yaml
     steps:
-      - uses: GuillaumeFalourd/ritchie-cli-action@main
+      - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
           args: python math sum numbers --number_one=1 --number_two=2
           rit_repo_url: https://github.com/GuillaumeFalourd/formulas-training
