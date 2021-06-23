@@ -28,13 +28,17 @@ runs:
           curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
         elif [ "$(uname)" = "Darwin" ]; then
           curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
+        else
+          echo "Windows"
         fi
       shell: bash
 
     - name: Install Ritchie CLI
       run: |
         if ( ("$(uname)" -ne "Linux") -and ("$(uname)" -ne "Darwin") ){
-          winget install Ritchie-CLI
+          https://commons-repo.ritchiecli.io/latest/ritchiecli.msi
+          ls
+          msiexec /i ritchiecli.msi
         }
       shell: pwsh
 
