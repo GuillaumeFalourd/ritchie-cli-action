@@ -35,7 +35,7 @@ runs:
       run: |
         if ( ("$(uname)" -ne "Linux") -and ("$(uname)" -ne "Darwin") ){
           msiexec /i https://commons-repo.ritchiecli.io/latest/ritchiecli.msi
-          ls
+          dir
         }
       shell: pwsh
 
