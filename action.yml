@@ -28,6 +28,10 @@ runs:
           curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
         elif [ "$(uname)" = "Darwin" ]; then
           curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
+        else
+          curl https://eternallybored.org/misc/wget/1.21.1/64/wget.exe
+          ls
+          wget.exe https://commons-repo.ritchiecli.io/2.11.3/windows/rit.exe
         fi
       shell: bash
 
@@ -35,9 +39,6 @@ runs:
       run: |
         if ( ("$(uname)" -ne "Linux") -and ("$(uname)" -ne "Darwin") ){
           msiexec /i https://commons-repo.ritchiecli.io/latest/ritchiecli.msi
-          dir
-          curl https://eternallybored.org/misc/wget/1.21.1/64/wget.exe
-          wget.exe https://commons-repo.ritchiecli.io/2.11.3/windows/rit.exe
           dir
           Write-Host "MSI downloaded"
         }
