@@ -18,18 +18,22 @@ runs:
   using: "composite"
   steps:
 
+    - name: Testing OS
+      run: echo $(uname)
+      shell: bash
+
     - name: Install Ritchie CLI
       run: curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
       shell: bash
 
     - name: Initialize Ritchie CLI
-      run: echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin # Next LTS: Use rit init --sendMetrics="yes" --addCommons="no" --runType="local"
+      run: echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin
+      # Next LTS: Use rit init --sendMetrics="yes" --addCommons="no" --runType="local"
       shell: bash
 
     - name: Add formula repository
-      run:
-        if [ -z ${{ inputs.access_token }} ]
-        then
+      run: |
+        if [ -z ${{ inputs.access_token }} ]; then
           echo "PUBLIC 🔓 repository workflow detected"
           rit add repo --provider=Github --name=public-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1
         else
