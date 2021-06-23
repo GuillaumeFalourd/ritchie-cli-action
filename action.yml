@@ -44,7 +44,7 @@ runs:
         else
           cd $GITHUB_WORKSPACE
           ls -lha
-          echo "{"addCommons":false, "sendMetrics":true, "runType":"local"}" | ./rit.exe init --stdin
+          echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | ./rit.exe init --stdin
         fi
       shell: bash
 
