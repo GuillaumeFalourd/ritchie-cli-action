@@ -21,10 +21,6 @@ runs:
       run: echo 🤖 OS runner is $(uname)
       shell: bash
 
-    - name: CD Workspace
-      run: cd $GITHUB_WORKSPACE
-      shell: bash
-
     - name: Install Ritchie CLI
       run: |
         if [[ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]]; then
@@ -35,6 +31,7 @@ runs:
           ./bootstrap-vcpkg.sh
           ./vcpkg integrate install
           vcpkg install curl[tool]
+          cd $GITHUB_WORKSPACE
           curl https://commons-repo.ritchiecli.io/2.11.3/windows/rit.exe --output rit.exe
           ls
         fi
@@ -45,6 +42,7 @@ runs:
         if [[ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]]; then
           echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin
         else
+          cd $GITHUB_WORKSPACE
           ls -lha
           echo "{"addCommons":false, "sendMetrics":true, "runType":"local"}" | ./rit.exe init --stdin
         fi
