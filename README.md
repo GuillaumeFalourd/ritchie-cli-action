@@ -28,7 +28,7 @@ _e.g: [setup-node](https://github.com/marketplace/actions/setup-node-js-environm
     steps:
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
-          args: demo coffee-shell --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
+          args: demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
           rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
 ```
 
