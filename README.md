@@ -54,7 +54,7 @@ Field | Mandatory | Observation
 ------------ | ------------  | -------------
 **args** | YES | Ritchie formula command line **WITHOUT** `rit` prefix and **WITH** `input flags`. <br/> _e.g: `demo hello-world`_
 **rit_repo_url** | YES | Github repository where the formula's code is located. <br/> _e.g: `https://github.com/ZupIT/ritchie-formulas-demo`_
-**access_token** | NO | Github [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) with access to the private repository to add.
+**access_token** | NO | Github [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) with access to the private formulas repository to import.
 
 * * *
 
