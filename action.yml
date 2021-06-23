@@ -29,20 +29,16 @@ runs:
         elif [ "$(uname)" = "Darwin" ]; then
           curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
         else
+          git clone https://github.com/Microsoft/vcpkg.git
+          cd vcpkg
+          ./bootstrap-vcpkg.sh
+          ./vcpkg integrate install
+          vcpkg install curl[tool]
           curl https://eternallybored.org/misc/wget/1.21.1/64/wget.exe
           ls
           wget.exe https://commons-repo.ritchiecli.io/2.11.3/windows/rit.exe
         fi
       shell: bash
-
-    - name: Install Ritchie CLI
-      run: |
-        if ( ("$(uname)" -ne "Linux") -and ("$(uname)" -ne "Darwin") ){
-          msiexec /i https://commons-repo.ritchiecli.io/latest/ritchiecli.msi
-          dir
-          Write-Host "MSI downloaded"
-        }
-      shell: pwsh
 
     - name: Initialize Ritchie CLI
       run: echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin
