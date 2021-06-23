@@ -41,7 +41,7 @@ runs:
         if [[ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]]; then
           echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin
         else
-          echo "{"addCommons":false, "sendMetrics":true, "runType":"local"}" | rit.exe init --stdin
+          echo "{"addCommons":false, "sendMetrics":true, "runType":"local"}" | .\rit.exe init --stdin
         fi
       shell: bash
 
@@ -54,14 +54,14 @@ runs:
           if [[ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]]; then
             rit add repo --provider=Github --name=public-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1
           else
-            rit.exe add repo --provider=Github --name=public-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1
+            .\rit.exe add repo --provider=Github --name=public-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1
           fi
         else
           echo "PRIVATE 🔐 repository workflow detected"
           if [[ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]]; then
             rit add repo --provider=Github --name=private-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1 --token=${{ inputs.access_token }}
           else
-            rit.exe add repo --provider=Github --name=private-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1 --token=${{ inputs.access_token }}
+            .\rit.exe add repo --provider=Github --name=private-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1 --token=${{ inputs.access_token }}
           fi
         fi
       shell: bash
@@ -72,7 +72,7 @@ runs:
         if [[ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]]; then
           rit ${{ inputs.args }}
         else
-          rit.exe ${{ inputs.args }}
+          .\rit.exe ${{ inputs.args }}
         fi
       shell: bash
 
