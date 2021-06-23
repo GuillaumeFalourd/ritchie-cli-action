@@ -21,6 +21,10 @@ runs:
       run: echo 🤖 OS runner is $(uname)
       shell: bash
 
+    - name: CD Workspace
+      run: cd $GITHUB_WORKSPACE
+      shell: bash
+
     - name: Install Ritchie CLI
       run: |
         if [[ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]]; then
