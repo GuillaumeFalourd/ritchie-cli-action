@@ -49,8 +49,8 @@ _e.g: [setup-node](https://github.com/marketplace/actions/setup-node-js-environm
 
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
-**args** | YES | Rit formula command line WITHOUT `rit`, e.g: `demo hello-world`
-**rit_repo_url** | YES | Github repository where the formula's code is located e.g: `https://github.com/ZupIT/ritchie-formulas-demo`
+**args** | YES | Rit formula command line **WITHOUT** `rit` prefix and **WITH** `input flags`. _e.g: `demo hello-world`_
+**rit_repo_url** | YES | Github repository where the formula's code is located. _e.g: `https://github.com/ZupIT/ritchie-formulas-demo`_
 **access_token** | NO | Github [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) with access to the private repository to add.
 
 * * *
