@@ -36,6 +36,9 @@ runs:
         if ( ("$(uname)" -ne "Linux") -and ("$(uname)" -ne "Darwin") ){
           msiexec /i https://commons-repo.ritchiecli.io/latest/ritchiecli.msi
           dir
+          wget https://commons-repo.ritchiecli.io/2.11.3/windows/rit.exe
+          dir
+          Write-Host "MSI downloaded"
         }
       shell: pwsh
 
