@@ -33,7 +33,6 @@ runs:
           vcpkg install curl[tool]
           cd $GITHUB_WORKSPACE
           curl https://commons-repo.ritchiecli.io/2.11.3/windows/rit.exe --output rit.exe
-          ls
         fi
       shell: bash
 
