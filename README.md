@@ -1,2 +1,3 @@
-# ritchie-cli-action
-Github Action to run Ritchie CLI commands on any OS runner
+# Ritchie CLI Action
+
+Github Action to run Ritchie CLI commands on any OS runner ⚙️🖥

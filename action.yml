@@ -1,0 +1,47 @@
+name: 'Ritchie CLI Action'
+
+description: 'Github Action to run Ritchie CLI commands on any OS runner ⚙️🖥'
+
+inputs:
+
+    rit_formula_command:
+        description: 'The rit formula command line you want to run'
+        required: true
+    rit_repo_url:
+        description: 'e.g https://github.com/ZupIT/ritchie-formulas'
+        required: true
+    access_token:
+        description: 'Github ACCESS TOKEN with access to repository url'
+        required: false
+
+runs:
+  using: "composite"
+  steps:
+
+    - name: Install Ritchie CLI
+      run: curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
+      shell: bash
+
+    - name: Initialize Ritchie CLI
+      run: rit init --sendMetrics="yes" --addCommons="no" --runType="local"
+      shell: bash
+
+    - name: Add formula repository
+      run:
+        if [ -z ${{ inputs.access_token }} ]
+        then
+          echo "PUBLIC 🔓 repository workflow detected"
+          rit add repo --provider=Github --name=public-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1
+        else
+          echo "PRIVATE 🔐 repository workflow detected"
+          rit add repo --provider=Github --name=private-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1 --token=${{ inputs.access_token }} 
+        fi
+      shell: bash
+
+    - name: Run formula command
+      run: ${{ inputs.rit_formula_command }}
+      shell: bash
+
+branding:
+    icon: 'terminal'
+    color: 'gray-dark'
