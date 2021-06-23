@@ -23,7 +23,7 @@ runs:
       shell: bash
 
     - name: Initialize Ritchie CLI
-      run: rit init --sendMetrics="yes" --addCommons="no" --runType="local"
+      run: echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin # Next LTS: Use rit init --sendMetrics="yes" --addCommons="no" --runType="local"
       shell: bash
 
     - name: Add formula repository
