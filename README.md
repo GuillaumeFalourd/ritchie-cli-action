@@ -14,7 +14,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ⚠️  The [`actions/checkout`](https://github.com/actions/checkout) is mandatory to use this action on **`WINDOWS RUNNER`**, as the repository root is used to install and execute Ritchie binary.
 
-⚠️ [`Actions to setup environments`](https://github.com/marketplace?type=actions&query=setup+env+) may be necessary to use this action depending on the `runner` or the `programming language` that will be used to run and build the formula. For example:
+⚠️ [`Actions to setup environments`](https://github.com/marketplace?type=actions&query=setup+env+) may be necessary to use this action depending on the `runner` or the `programming language` that will be used to run or build the formula. For example:
 
 - [setup-node](https://github.com/marketplace/actions/setup-node-js-environment) for formula coded using Node, 
 - [setup-go](https://github.com/marketplace/actions/setup-go-environment) for formula code using Golang, 
