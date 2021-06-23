@@ -42,7 +42,7 @@ runs:
           echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin
         else
           ls -lha
-          echo "{"addCommons":false, "sendMetrics":true, "runType":"local"}" | /rit.exe init --stdin
+          echo "{"addCommons":false, "sendMetrics":true, "runType":"local"}" | ./rit.exe init --stdin
         fi
       shell: bash
 
