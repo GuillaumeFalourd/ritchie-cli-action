@@ -16,9 +16,9 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ⚠️ The [`actions to setup environment`](https://github.com/marketplace?type=actions&query=setup+env+) may be necessary to use this action depending on the programming language that will be used to build the formula. For example:
 
-- [setup-node](https://github.com/marketplace/actions/setup-node-js-environment) for formula coded in Node, 
-- [setup-go](https://github.com/marketplace/actions/setup-go-environment) for formula code in Golang, 
-- [setup-java](https://github.com/marketplace/actions/setup-java-jdk) for formula coded en Java
+- [setup-node](https://github.com/marketplace/actions/setup-node-js-environment) for formula coded using Node, 
+- [setup-go](https://github.com/marketplace/actions/setup-go-environment) for formula code using Golang, 
+- [setup-java](https://github.com/marketplace/actions/setup-java-jdk) for formula coded using Java
 - ...
 
  * * *
