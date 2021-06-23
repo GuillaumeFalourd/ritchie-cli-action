@@ -18,13 +18,25 @@ runs:
   using: "composite"
   steps:
 
-    - name: Testing OS
-      run: echo $(uname)
+    - name: Check Runner
+      run: echo 🤖 OS runner is $(uname)
       shell: bash
 
     - name: Install Ritchie CLI
-      run: curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
+      run: |
+        if [ "$(uname)" = "Linux" ]; then
+          curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
+        elif [ "$(uname)" = "Darwin" ]; then
+          curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
+        fi
       shell: bash
+
+    - name: Install Ritchie CLI
+      run: |
+        if ( ("$(uname)" -neq "Linux") -and ("$(uname)" -neq "Darwin") ){
+          winget install Ritchie-CLI
+        }
+      shell: pwsh
 
     - name: Initialize Ritchie CLI
       run: echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin
@@ -43,7 +55,9 @@ runs:
       shell: bash
 
     - name: Run formula command
-      run: ${{ inputs.rit_formula_command }}
+      run: |
+        ⚙️ Ritchie Formula command to run: ${{ inputs.rit_formula_command }}
+        ${{ inputs.rit_formula_command }}
       shell: bash
 
 branding:
