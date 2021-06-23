@@ -3,9 +3,8 @@ name: 'Ritchie CLI Action'
 description: 'Github Action to run Ritchie CLI commands on any OS runner ⚙️🖥'
 
 inputs:
-
-    rit_formula_command:
-        description: 'The rit formula command line you want to run'
+    args:
+        description: 'The rit formula command line you want to run, without the rit command'
         required: true
     rit_repo_url:
         description: 'e.g https://github.com/ZupIT/ritchie-formulas'
@@ -24,9 +23,7 @@ runs:
 
     - name: Install Ritchie CLI
       run: |
-        if [ "$(uname)" = "Linux" ]; then
-          curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
-        elif [ "$(uname)" = "Darwin" ]; then
+        if [ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]; then
           curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
         else
           git clone https://github.com/Microsoft/vcpkg.git
@@ -39,25 +36,43 @@ runs:
       shell: bash
 
     - name: Initialize Ritchie CLI
-      run: echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin
-      # Next LTS: Use rit init --sendMetrics="yes" --addCommons="no" --runType="local"
+      run: |
+        if [ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]; then
+          echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | rit init --stdin
+        else
+          echo '{"addCommons":false, "sendMetrics":true, "runType":"local"}' | ./rit.exe init --stdin
+        fi
       shell: bash
+
+      # Next LTS: Use rit init --sendMetrics="yes" --addCommons="no" --runType="local"
 
     - name: Add formula repository
       run: |
         if [ -z ${{ inputs.access_token }} ]; then
           echo "PUBLIC 🔓 repository workflow detected"
-          rit add repo --provider=Github --name=public-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1
+          if [ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]; then
+            rit add repo --provider=Github --name=public-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1
+          else
+            ./rit.exe add repo --provider=Github --name=public-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1
+          fi
         else
           echo "PRIVATE 🔐 repository workflow detected"
-          rit add repo --provider=Github --name=private-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1 --token=${{ inputs.access_token }} 
+          if [ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]; then
+            rit add repo --provider=Github --name=private-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1 --token=${{ inputs.access_token }}
+          else
+            ./rit.exe add repo --provider=Github --name=private-repo --repoUrl=${{ inputs.rit_repo_url }} --priority=1 --token=${{ inputs.access_token }}
+          fi
         fi
       shell: bash
 
     - name: Run formula command
       run: |
-        echo ⚙️ Ritchie Formula command to run: ${{ inputs.rit_formula_command }}
-        ${{ inputs.rit_formula_command }}
+        echo ⚙️ Running Ritchie Formula command:
+        if [ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]; then
+          rit ${{ inputs.args }}
+        else
+          ./rit.exe ${{ inputs.args }}
+        fi
       shell: bash
 
 branding:
