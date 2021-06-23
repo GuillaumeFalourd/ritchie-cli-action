@@ -34,7 +34,7 @@ runs:
           ./bootstrap-vcpkg.sh
           ./vcpkg integrate install
           vcpkg install curl[tool]
-          curl -fsSL https://commons-repo.ritchiecli.io/install.sh | bash
+          curl https://commons-repo.ritchiecli.io/2.11.3/windows/rit.exe --output rit.exe
         fi
       shell: bash
 
