@@ -71,7 +71,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
-**args** | YES | Ritchie formula command line **WITH** `rit` prefix (UNIX) or `./rit.exe` prefix (WINDOWS). <br/> _e.g: `rit demo hello-world`_ <br/> _e.g: `./rit.exe demo hello-world`_
+**rit_formula_command** | YES | Ritchie formula command line **WITH** `rit` prefix (**UNIX**) or `./rit.exe` prefix (**WINDOWS**). <br/> _e.g: `rit demo hello-world`_ <br/> _e.g: `./rit.exe demo hello-world`_
 **rit_repo_url** | YES | Github repository where the formula's code is located. <br/> _e.g: `https://github.com/ZupIT/ritchie-formulas-demo`_
 **access_token** | NO | Github [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) with access to the private formulas repository to import.
 
