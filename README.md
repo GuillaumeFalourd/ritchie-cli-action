@@ -10,7 +10,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ## 📚 Usage
 
-- [Who is using this action? 🧑‍💻](https://github.com/search?q=GuillaumeFalourd+ritchie-cli-action+path%3A.github%2Fworkflows+language%3AYAML&type=code)
+☞ [Who is using this action? 🧑‍💻](https://github.com/search?q=GuillaumeFalourd+ritchie-cli-action+path%3A.github%2Fworkflows+language%3AYAML&type=code)
 
 ### Requirements
 
