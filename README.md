@@ -16,7 +16,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ⚠️  The [`actions/checkout`](https://github.com/actions/checkout) is mandatory to use this action on **`WINDOWS RUNNER`**, as the repository root is used to install and execute Ritchie binary.
 
-⚠️ [`Actions to setup environments`](https://github.com/marketplace?type=actions&query=setup+env+) may be necessary to use this action depending on the `runner` or the `programming language` that will be used to run or build the formula. For example:
+⚠️ [`Actions to setup environments`](https://github.com/marketplace?type=actions&query=setup+env+) may be necessary to use this action depending on the `runner` or the `programming language` that will be used to run and build the formula. For example:
 
 - [setup-node](https://github.com/marketplace/actions/setup-node-js-environment) for formula coded using Node, 
 - [setup-go](https://github.com/marketplace/actions/setup-go-environment) for formula code using Golang, 
@@ -27,7 +27,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ## ♻️ Scenarios
 
-#### Run rit formula from PUBLIC Github repository
+#### Run rit formula from `PUBLIC` Github repository
 
 ```yaml
     runs-on: ubuntu-latest OR macos-latest
@@ -45,7 +45,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
           rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
 ```
 
-#### Run rit formula from PRIVATE Github repository
+#### Run rit formula from `PRIVATE` Github repository
 
 ```yaml
     runs-on: ubuntu-latest OR macos-latest
@@ -71,7 +71,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
-**rit_formula_command** | YES | Ritchie formula command line. <br/> _e.g: `rit demo hello-world`_ (**UNIX**) <br/> _e.g: `./rit.exe demo hello-world`_ (**WINDOWS**)
+**rit_formula_command** | YES | Ritchie formula command line. <br/> _e.g: `rit demo hello-world`_ (**UNIX**)<br/> _e.g: `./rit.exe demo hello-world`_ (**WINDOWS**)
 **rit_repo_url** | YES | Github repository where the formula's code is located. <br/> _e.g: `https://github.com/ZupIT/ritchie-formulas-demo`_
 **access_token** | NO | Github [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) with access to the private formulas repository to import.
 
@@ -79,6 +79,10 @@ _Note: Formula's **generated outputs (files or directories)** will be located at
 
 * * *
 
-## Licensed
+## 🤝 Contribution
+
+[Guidelines](https://github.com/GuillaumeFalourd/ritchie-cli-action/blob/main/CONTRIBUTING.md)
+
+## 🏅 Licensed
 
 This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/aws-cliaction/blob/main/LICENSE)
