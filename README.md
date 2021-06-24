@@ -27,17 +27,21 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ## ♻️ Scenarios
 
-#### Run rit formula from `PUBLIC` Github repository
+### Run formula from `PUBLIC` Github repository
+
+#### Unix (public)
 
 ```yaml
-    runs-on: ubuntu-latest OR macos-latest
     steps:
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
           rit_formula_command: rit demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
           rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
+```
 
-    runs-on: windows-latest
+#### Windows (public)
+
+```yaml
     steps:
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
@@ -45,18 +49,22 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
           rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
 ```
 
-#### Run rit formula from `PRIVATE` Github repository
+### Run formula from `PRIVATE` Github repository
+
+#### Unix (private)
 
 ```yaml
-    runs-on: ubuntu-latest OR macos-latest
     steps:
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
           rit_formula_command: rit python math sum numbers --number_one=1 --number_two=2
           rit_repo_url: https://github.com/GuillaumeFalourd/formulas-training
           access_token: ${{ secrets.ACCESS_TOKEN }}
+```
 
-    runs-on: windows-latest
+#### Windows (private)
+
+```yaml
     steps:
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
@@ -79,10 +87,10 @@ _Note: Formula's **generated outputs (files or directories)** will be located at
 
 * * *
 
-## 🤝 Contribution
+## 🤝 Contributing
 
-[Guidelines](https://github.com/GuillaumeFalourd/ritchie-cli-action/blob/main/CONTRIBUTING.md)
+☞ [Guidelines](https://github.com/GuillaumeFalourd/ritchie-cli-action/blob/main/CONTRIBUTING.md)
 
 ## 🏅 Licensed
 
-This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/aws-cliaction/blob/main/LICENSE)
+☞ This repository uses the [Apache License 2.0](https://github.com/GuillaumeFalourd/aws-cliaction/blob/main/LICENSE)
