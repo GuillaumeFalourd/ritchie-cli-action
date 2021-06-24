@@ -10,6 +10,8 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ## 📚 Usage
 
+☞ [Who is using this action? 🧑‍💻](https://github.com/search?q=GuillaumeFalourd+ritchie-cli-action+path%3A.github%2Fworkflows+language%3AYAML&type=code)
+
 ### Requirements
 
 ⚠️  The [`actions/checkout`](https://github.com/actions/checkout) is mandatory to use this action on **`WINDOWS RUNNER`**, as the repository root is used to install and execute Ritchie binary.
@@ -28,20 +30,37 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 #### Run rit formula from PUBLIC Github repository
 
 ```yaml
+    runs-on: ubuntu-latest OR macos-latest
     steps:
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
-          args: demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
+          rit_formula_command: rit demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
+          rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
+
+    runs-on: windows-latest
+    steps:
+      - uses: GuillaumeFalourd/ritchie-cli-action@v1
+        with:
+          rit_formula_command: ./rit.exe demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
           rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
 ```
 
 #### Run rit formula from PRIVATE Github repository
 
 ```yaml
+    runs-on: ubuntu-latest OR macos-latest
     steps:
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
-          args: python math sum numbers --number_one=1 --number_two=2
+          rit_formula_command: rit python math sum numbers --number_one=1 --number_two=2
+          rit_repo_url: https://github.com/GuillaumeFalourd/formulas-training
+          access_token: ${{ secrets.ACCESS_TOKEN }}
+
+    runs-on: windows-latest
+    steps:
+      - uses: GuillaumeFalourd/ritchie-cli-action@v1
+        with:
+          rit_formula_command: ./rit.exe python math sum numbers --number_one=1 --number_two=2
           rit_repo_url: https://github.com/GuillaumeFalourd/formulas-training
           access_token: ${{ secrets.ACCESS_TOKEN }}
 ```
@@ -52,9 +71,11 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 Field | Mandatory | Observation
 ------------ | ------------  | -------------
-**args** | YES | Ritchie formula command line **WITHOUT** `rit` prefix and **WITH** `input flags`. <br/> _e.g: `demo hello-world`_
+**rit_formula_command** | YES | Ritchie formula command line **WITH** `rit` prefix (**UNIX**) or `./rit.exe` prefix (**WINDOWS**). <br/> _e.g: `rit demo hello-world`_ <br/> _e.g: `./rit.exe demo hello-world`_
 **rit_repo_url** | YES | Github repository where the formula's code is located. <br/> _e.g: `https://github.com/ZupIT/ritchie-formulas-demo`_
 **access_token** | NO | Github [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) with access to the private formulas repository to import.
+
+_Note: Formula's **generated outputs (files or directories)** will be located at the repository root (`$GITHUB_WORKSPACE`)._
 
 * * *
 

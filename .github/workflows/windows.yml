@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2.3.4
       - uses: GuillaumeFalourd/ritchie-cli-action@main
         with:
-          args: demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
+          rit_formula_command: ./rit.exe demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
           rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
   
   private-repo:
@@ -21,6 +21,6 @@ jobs:
       - uses: actions/checkout@v2.3.4
       - uses: GuillaumeFalourd/ritchie-cli-action@main
         with:
-          args: python math sum numbers --number_one=1 --number_two=2
+          rit_formula_command: ./rit.exe python math sum numbers --number_one=1 --number_two=2
           rit_repo_url: https://github.com/GuillaumeFalourd/formulas-training
           access_token: ${{ secrets.ACCESS_TOKEN }}
