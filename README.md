@@ -27,9 +27,9 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ## ♻️ Scenarios
 
-### Run formula from `PUBLIC` Github repository
+#### 🔓 Run formula from `PUBLIC` Github repository
 
-#### Unix (public)
+**Unix**
 
 ```yaml
     steps:
@@ -39,7 +39,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
           rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
 ```
 
-#### Windows (public)
+**Windows**
 
 ```yaml
     steps:
@@ -49,9 +49,9 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
           rit_repo_url: https://github.com/ZupIT/ritchie-formulas-demo
 ```
 
-### Run formula from `PRIVATE` Github repository
+#### 🔐 Run formula from `PRIVATE` Github repository
 
-#### Unix (private)
+**Unix**
 
 ```yaml
     steps:
@@ -62,7 +62,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
           access_token: ${{ secrets.ACCESS_TOKEN }}
 ```
 
-#### Windows (private)
+**Windows**
 
 ```yaml
     steps:
