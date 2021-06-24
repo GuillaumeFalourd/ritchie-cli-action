@@ -10,6 +10,8 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ## 📚 Usage
 
+- [Who is using this action? 🧑‍💻](https://github.com/search?q=GuillaumeFalourd+ritchie-cli-action+path%3A.github%2Fworkflows+language%3AYAML&type=code)
+
 ### Requirements
 
 ⚠️  The [`actions/checkout`](https://github.com/actions/checkout) is mandatory to use this action on **`WINDOWS RUNNER`**, as the repository root is used to install and execute Ritchie binary.
