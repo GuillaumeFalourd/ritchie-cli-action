@@ -3,7 +3,7 @@ name: 'Ritchie CLI Action'
 description: 'Github Action to run Ritchie CLI commands on any OS runner ⚙️🖥'
 
 inputs:
-    args:
+    rit_formula_command:
         description: 'The rit formula command line you want to run, without the rit command'
         required: true
     rit_repo_url:
@@ -72,12 +72,8 @@ runs:
     - name: Run formula command
       run: |
         echo ⚙️ Running Ritchie Formula command:
-        if [[ "$(uname)" = "Linux" || "$(uname)" = "Darwin" ]]; then
-          rit ${{ inputs.args }}
-        else
-          cd $GITHUB_WORKSPACE
-          ./rit.exe ${{ inputs.args }}
-        fi
+        cd $GITHUB_WORKSPACE
+        ${{ inputs.rit_formula_command }}
       shell: bash
 
 branding:
