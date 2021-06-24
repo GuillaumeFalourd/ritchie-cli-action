@@ -73,6 +73,8 @@ Field | Mandatory | Observation
 **rit_repo_url** | YES | Github repository where the formula's code is located. <br/> _e.g: `https://github.com/ZupIT/ritchie-formulas-demo`_
 **access_token** | NO | Github [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) with access to the private formulas repository to import.
 
+_Note: Formula's **generated outputs (files or directories)** will be located at the repository root (`$GITHUB_WORKSPACE`)._
+
 * * *
 
 ## Licensed
