@@ -33,6 +33,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ```yaml
     steps:
+      - uses: setup-<formula_programming-language>
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
           rit_formula_command: rit demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
@@ -43,6 +44,8 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ```yaml
     steps:
+      - uses: actions/checkout@v2.3.4
+      - uses: setup-<formula_programming-language>
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
           rit_formula_command: ./rit.exe demo coffee-python --rit_name=Dennis --rit_coffee_type=espresso --rit_delivery=false
@@ -55,6 +58,7 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ```yaml
     steps:
+      - uses: setup-<formula_programming-language>
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
           rit_formula_command: rit python math sum numbers --number_one=1 --number_two=2
@@ -66,6 +70,8 @@ Github Action to run [Ritchie CLI](https://ritchiecli.io) commands on any OS run
 
 ```yaml
     steps:
+      - uses: actions/checkout@v2.3.4
+      - uses: setup-<formula_programming-language>
       - uses: GuillaumeFalourd/ritchie-cli-action@v1
         with:
           rit_formula_command: ./rit.exe python math sum numbers --number_one=1 --number_two=2
